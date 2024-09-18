@@ -7,6 +7,20 @@ The objective of this project is to set up an NFS (Network File System) server o
 (RHEL) to provide shared file access to multiple client machines. This setup ensures that files can be 
 centrally managed and accessed from different systems within the network.
 
+```mermaid
+graph TD;
+    A[Client Request] --> B[Check Mount Point]
+    B -->|Mount Point Exists| C[Send NFS Request to Server]
+    B -->|Mount Point Does Not Exist| D[Mount NFS Share]
+    D --> C
+    C --> E[Authenticate Request]
+    E -->|Authentication Success| F[Process Request]
+    E -->|Authentication Failure| G[Reject Request]
+    F --> H[Read/Write Data]
+    H --> I[Send Response to Client]
+    I --> J[Client Receives Data]
+    G --> J[Client Receives Error]
+```
 ## Project Overview
 
 1.  **Planning and Preparation**
