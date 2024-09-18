@@ -8,7 +8,7 @@ The objective of this project is to set up an NFS (Network File System) server o
 centrally managed and accessed from different systems within the network.
 
 ```mermaid
-graph TD;
+graph LR;
     A[Client Request] --> B[Check Mount Point]
     B -->|Mount Point Exists| C[Send NFS Request to Server]
     B -->|Mount Point Does Not Exist| D[Mount NFS Share]
